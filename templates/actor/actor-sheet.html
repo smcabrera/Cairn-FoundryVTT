@@ -1,4 +1,4 @@
-<form
+  <form
     class="{{cssClass}} flexcol"
     autocomplete="off">
     {{!-- Sheet Header --}}
@@ -15,7 +15,7 @@
             <div class="flexrow resource hp">
                 <label
                     for="data.hp.value"
-                    class="resource-label">HP
+                    class="resource-label">Stamina
                 </label>
                 <div class="resource-content flexrow flex-center flex-between">
                     <input
@@ -38,7 +38,7 @@
                 width: 150px;"
                 type="button"
                 title="Rest"
-                class="rest">Rest
+                class="rest">Short Rest
                 </button>
             </span>
             {{/unless}}
@@ -47,7 +47,7 @@
                 width: 150px;"
                 type="button"
                 title="Rest"
-                class="restore">Restore Abilities
+                class="restore">Long Rest
                 </button>
             </span>
         </div>
@@ -74,7 +74,7 @@
                             <label
                                 for="data.abilities.{{key}}.value"
                                 class="resource-label rollable-ability"
-                                data-roll="d20cs<=@abilities.{{key}}.value"
+                                data-roll="2d6 + @abilities.{{key}}.value"
                                 data-label="{{key}} save">
                                 {{key}} <i class="fas fa-dice-d20"></i>
                             </label>
@@ -83,12 +83,6 @@
                                 type="text"
                                 name="data.abilities.{{key}}.value"
                                 value="{{ability.value}}"
-                                data-dtype="Number"
-                                /> <span> / </span>
-                                <input
-                                type="text"
-                                name="data.abilities.{{key}}.max"
-                                value="{{ability.max}}"
                                 data-dtype="Number"
                                 />
                             </div>
@@ -128,16 +122,14 @@
                             <img src="systems/cairn/tokens/png/extra/fatigue-alt.png" />
                         </div>
                         <div class="flexrow">
-                            <label class="resource-label">Deprived</label>
+                            <label class="resource-label">Wounds</label>
                             <div class="resource-content flexrow flex-center flex-between">
                                 <input
                                 class="checkbox-block"
-                                type="checkbox"
-                                {{checked
-                                data.deprived}}
-                                name="data.deprived"
-                                value="{{data.deprived}}"
-                                data-dtype="Boolean"/>
+                                type="text"
+                                name="data.wounds"
+                                value="{{data.wounds}}"
+                                data-dtype="Integer"/>
                             </div>
                         </div>
                     </div>
@@ -219,7 +211,7 @@
                                 <span
                                     class="rollable"
                                     data-label="damage with {{item.name}}"
-                                    data-roll="{{item.data.damageFormula}}"
+                                    data-roll="2d6 + {{item.data.damageFormula}}"
                                     title="Roll Damage">
                                     <i class="fas fa-dice-d20"></i>
                                 </span>

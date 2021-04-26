@@ -9,7 +9,7 @@ export class CairnActorSheet extends ActorSheet {
             classes: ["cairn",
                 "sheet",
                 "actor"],
-            template: "systems/cairn/templates/actor/actor-sheet.html",
+            template: "systems/maze-rats/templates/actor/actor-sheet.html",
             width: 600,
             height: 650,
             tabs: [
@@ -32,7 +32,7 @@ getData() {
     data.items = data.items.sort((a, b) => a["name"] < b["name"] ? -1 : a["name"] > b["name"] ? 1 : 0);
     return data;
   }
-  
+
     /** @override */
     activateListeners (html) {
         super.activateListeners(html);
@@ -136,18 +136,19 @@ getData() {
             let rolled = roll.roll();
 
             let formula = rolled._formula;
-            let rolled_number = rolled.terms[0].results[0].result;
-            if (rolled.results[0] === 0){
+            let first_rolled_number = rolled.terms[0].results[0].result;
+            let second_rolled_number = rolled.terms[0].results[1].result;
+            if (rolled.total < 10){
                 rolled.toMessage({
                 speaker: ChatMessage.getSpeaker({actor: this.actor}),
-                flavor: label,  
-                content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled_number}</li></ol></div></section></div><h4 class="dice-total failure">Fail (${rolled_number})</h4</div></div>`
+                flavor: label,
+                content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${formula}</span></header><ol class="dice-rolls"><li class="roll die d6">${first_rolled_number}</li><li class="roll die d6">${second_rolled_number}</li></ol></div></section></div><h4 class="dice-total failure">Failed by ${10 - rolled.total}</h4</div></div>`
             });
             }else {
                 rolled.toMessage({
                 speaker: ChatMessage.getSpeaker({actor: this.actor}),
-                flavor: label,  
-                content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${formula}</span></header><ol class="dice-rolls"><li class="roll die d20">${rolled_number}</li></ol></div></section></div><h4 class="dice-total success">Success (${rolled_number})</h4</div></div>`
+                flavor: label,
+                content: `<div class="dice-roll"><div class="dice-result"><div class="dice-formula">${formula}</div><div class="dice-tooltip" style="display: none;"><section class="tooltip-part"><div class="dice"><header class="part-header flexrow"><span class="part-formula">${formula}</span></header><ol class="dice-rolls"><li class="roll die d6">${first_rolled_number}</li><li class="roll die d6">${second_rolled_number}</li></ol></div></section></div><h4 class="dice-total success">Success</h4</div></div>`
             });
             }
         }

@@ -1,7 +1,7 @@
 {
-  "name": "cairn",
-  "title": "Cairn",
-  "description": "Cairn for FoundryVTT", "version": "0.9.7",
+  "name": "maze-rats",
+  "title": "maze-rats",
+  "description": "maze-rats for FoundryVTT", "version": "0.9.7",
   "minimumCoreVersion": "0.6.2",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
@@ -18,70 +18,70 @@
     "label": "Armor",
     "path": "packs/armor.db",
     "entity": "Item",
-    "system": "cairn"
+    "system": "maze-rats"
     },
     {
     "name": "character-traits",
     "label": "Character Traits",
     "path": "packs/character-traits.db",
     "entity": "RollTable",
-    "system": "cairn"
+    "system": "maze-rats"
     },
     {
     "name": "expeditionary-gear",
     "label": "Expeditionary Gear",
     "path": "packs/expeditionary-gear.db",
     "entity": "Item",
-    "system": "cairn"
+    "system": "maze-rats"
     },
     {
     "name": "extra",
     "label": "Extra",
     "path": "packs/extra.db",
     "entity": "Item",
-    "system": "cairn"
+    "system": "maze-rats"
     },
     {
     "name": "gear-tables",
     "label": "Gear Tables",
     "path": "packs/gear-tables.db",
     "entity": "RollTable",
-    "system": "cairn"
+    "system": "maze-rats"
     },
     {
     "name": "macros",
     "label": "Macros",
     "path": "packs/macros.db",
     "entity": "Macro",
-    "system": "cairn"
+    "system": "maze-rats"
     },
     {
     "name": "spellbooks",
     "label": "Spellbooks",
     "path": "packs/spellbooks.db",
     "entity": "Item",
-    "system": "cairn"
+    "system": "maze-rats"
     },
     {
     "name": "tools",
     "label": "Tools",
     "path": "packs/tools.db",
     "entity": "Item",
-    "system": "cairn"
+    "system": "maze-rats"
     },
     {
     "name": "trinkets",
     "label": "Trinkets",
     "path": "packs/trinkets.db",
     "entity": "Item",
-    "system": "cairn"
+    "system": "maze-rats"
     },
     {
     "name": "weapons",
     "label": "Weapons",
     "path": "packs/weapons.db",
     "entity": "Item",
-    "system": "cairn"
+    "system": "maze-rats"
     }
   ],
   "scripts": [],
